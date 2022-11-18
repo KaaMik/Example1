@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			let article = {
+				date: new Date(2030, 12, 01),
+				title: "Hello world",
+				content: " To mój pierwszy artykuł",
+				tags: ["blog", "lifestyle"],
+				version: 1,
+			};
+
+			function validateArticle(art) {
+				if ("title" in art === false || typeof art.title !== "string") {
+					console.log("nieprawidlowy title");
+					return false;
+				}
+
+				if ("content" in art === false || typeof art.content !== "string") {
+					console.log("nieprawidlowy content");
+					return false;
+				}
+				if ("tags" in art === false || !Array.isArray(art.tags)) {
+					console.log("bledny tag");
+					return false;
+				}
+				if (!"version" in art || art.version <= 0) {
+					console.log("bledna versja ");
+					return false;
+				} else return true;
+			}
+			console.log(validateArticle(article));
+		</script>
+	</body>
+</html>
